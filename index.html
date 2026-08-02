@@ -3,92 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NicoSMP | Home</title>
+    <meta name="description" content="Join NicoSMP - A community-driven Minecraft survival server focused on economy, events, and long-term progression.">
+
+    <title>NicoSMP | Survival Without Limits</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-logo">NICO//<span>SMP</span></div>
-        <div class="nav-links">
-            <a href="#" class="active">HOME</a>
-            <a href="https://forums.nicosmp.net">FORUMS</a>
-            <a href="https://store.nicosmp.net">STORE</a>
-        </div>
-    </nav>
+<header class="site-header">
 
-    <!-- Main Container to enforce grid padding -->
-    <div class="main-layout">
-        
-        <!-- Hero Section -->
-        <header class="hero-block">
-            <h1>WELCOME TO <span class="highlight">NICOSMP</span></h1>
-            <p class="tagline">SEASON 3 IS OFFICIALLY LIVE. THE GRIND NEVER STOPS.</p>
-            
-            <div class="ip-widget">
-                <span id="server-ip">play.nicosmp.net</span>
-                <button class="brutal-btn" onclick="copyIP()">COPY IP</button>
-            </div>
-            <p id="copy-alert" class="copy-alert">IP COPIED! SEE YOU ONLINE 🚀</p>
-        </header>
+    <div class="container nav">
 
-        <!-- Dynamic Content Row: Gallery & Info -->
-        <div class="content-row">
-            
-            <!-- Server Info / Lore Block -->
-            <section class="info-block">
-                <h2>// SERVER INFO</h2>
-                <p>NicoSMP is a highly optimized survival experience built for grinders. No lag, no clunky setups, just raw performance and a goated community. Season 3 brings fully overhauled mechanics, revamped reward systems, and a fresh map reset.</p>
-                <a href="https://discord.gg/MkN5u7WVQe" target="_blank" class="brutal-btn discord-btn">JOIN THE DISCORD</a>
-            </section>
+        <a href="#" class="logo">
+            <span class="logo-mark">NICO</span>
+            <span class="logo-slash">//</span>
+            <span class="logo-text">SMP</span>
+        </a>
 
-            <!-- Server Media / Screenshots Block -->
-            <section class="gallery-block">
-                <h2>// SCREENSHOTS</h2>
-                <div class="gallery-grid">
-                    <!-- Drop your screenshot file names in the src attributes below -->
-                    <div class="screenshot-frame">
-                        <img src="spawn.png" alt="Server Spawn Location" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="img-placeholder">SPAWN_IMAGE.PNG</div>
-                    </div>
-                    <div class="screenshot-frame">
-                        <img src="builds.png" alt="Community Builds" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="img-placeholder">COMMUNITY_BUILDS.PNG</div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Server Features Grid -->
-        <section class="features-section">
-            <h2>// CORE MECHANICS</h2>
-            <div class="features-grid">
-                <div class="feature-box">
-                    <div class="icon">⚖️</div>
-                    <h3>BALANCED ECONOMY</h3>
-                    <p>A fully tuned, player-driven economy system that keeps the game rewarding. Trade, build your wealth, and dominate the leaderboards.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="icon">🎁</div>
-                    <h3>CUSTOM CRATES</h3>
-                    <p>Earn keys through voting, events, or the store to unlock unique daily, seasonal, and tiered rewards to upgrade your gear.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="icon">⚡</div>
-                    <h3>PEAK PERFORMANCE</h3>
-                    <p>Lag-free gameplay with specialized optimization, a highly active staff team, and an incredible community environment.</p>
-                </div>
-            </div>
-        </section>
+        <nav class="navigation">
+            <a class="active" href="#">Home</a>
+            <a href="https://forums.nicosmp.net">Forums</a>
+            <a href="https://store.nicosmp.net">Store</a>
+            <a href="https://discord.gg/MkN5u7WVQe" target="_blank">Discord</a>
+        </nav>
 
     </div>
 
-    <!-- Footer -->
-    <footer class="brutal-footer">
-        <p>&copy; 2026 NICOSMP. NOT AFFILIATED WITH MOJANG STUDIOS.</p>
-    </footer>
+</header>
 
-    <script src="script.js"></script>
+<main>
+
+<!-- ======================================
+                HERO
+======================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                Minecraft Survival • Season 3
+            </span>
+
+            <h1>
+                Survival built for
+                <span>players who stay.</span>
+            </h1>
+
+            <p class="hero-text">
+                A community-first survival server with a balanced economy,
+                rewarding progression, frequent updates, and a fresh Season 3
+                world ready to explore.
+            </p>
+
+            <div class="ip-box">
+
+                <div class="ip-info">
+
+                    <small>Server Address</small>
+
+                    <strong id="server-ip">
+                        play.nicosmp.net
+                    </strong>
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    id="copy-ip">
+
+                    Copy IP
+
+                </button>
+
+            </div>
+
+            <p id="copy-alert" class="copy-message">
+                ✓ Server IP copied to clipboard.
+            </p>
+
+        </div>
+
+        <aside class="hero-card">
+
+            <div class="status-header">
+
+                <span class="status-dot"></span>
+
+                <span>Server Status</span>
+
+            </div>
+
+            <div class="status-grid">
+
+                <div>
+
+                    <small>Version</small>
+                    <strong>1.21+</strong>
+
+                </div>
+
+                <div>
+
+                    <small>Season</small>
+                    <strong>3</strong>
+
+                </div>
+
+                <div>
+
+                    <small>Difficulty</small>
+                    <strong>Survival</strong>
+
+                </div>
+
+                <div>
+
+                    <small>Focus</small>
+                    <strong>Economy</strong>
+
+                </div>
+
+            </div>
+
+            <a
+                class="secondary-button"
+                href="https://discord.gg/MkN5u7WVQe"
+                target="_blank">
+
+                Join Community
+
+            </a>
+
+        </aside>
+
+    </div>
+
+</section>
+
+<!-- ======================================
+              SCREENSHOTS
+======================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>Gallery</span>
+
+            <h2>Take a look around.</h2>
+
+            <p>
+                Explore the world, community builds, and everything waiting
+                inside NicoSMP.
+            </p>
+
+        </div>
+
+        <div class="gallery">
+
+            <figure>
+
+                <img
+                    src="spawn.png"
+                    alt="NicoSMP Spawn"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+                <div class="placeholder">
+
+                    Spawn Screenshot
+
+                </div>
+
+            </figure>
+
+            <figure>
+
+                <img
+                    src="builds.png"
+                    alt="Community Builds"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+                <div class="placeholder">
+
+                    Community Builds
+
+                </div>
+
+            </figure>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================
+                FEATURES
+======================================= -->
+
+<section class="section alt">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Why NicoSMP?</span>
+
+<h2>Everything built around long-term survival.</h2>
+
+</div>
+
+<div class="feature-grid">
+
+<article class="feature">
+
+<h3>Balanced Economy</h3>
+
+<p>
+
+Trade with other players, build shops,
+grow your wealth, and participate in a
+stable player-driven economy that rewards
+time and strategy instead of shortcuts.
+
+</p>
+
+</article>
+
+<article class="feature">
+
+<h3>Custom Rewards</h3>
+
+<p>
+
+Earn crate keys from gameplay, events,
+and voting to unlock cosmetics,
+gear, boosters, and seasonal content.
+
+</p>
+
+</article>
+
+<article class="feature">
+
+<h3>Optimized Performance</h3>
+
+<p>
+
+A carefully maintained server focused on
+smooth gameplay, low latency,
+and consistent uptime so your progress
+always feels reliable.
+
+</p>
+
+</article>
+
+<article class="feature">
+
+<h3>Community Events</h3>
+
+<p>
+
+Frequent competitions,
+special events,
+and seasonal activities give players
+new goals beyond simply surviving.
+
+</p>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================================
+                ABOUT
+======================================= -->
+
+<section class="section">
+
+<div class="container about-grid">
+
+<div>
+
+<span class="mini-title">
+
+About NicoSMP
+
+</span>
+
+<h2>
+
+A survival server designed for progression.
+
+</h2>
+
+<p>
+
+NicoSMP focuses on creating a long-lasting
+Minecraft experience where building,
+exploration, trading, and community
+matter just as much as combat.
+
+Rather than overwhelming players with
+dozens of unnecessary systems,
+every feature is designed to improve
+the survival experience while keeping
+the gameplay approachable.
+
+</p>
+
+</div>
+
+<div class="about-panel">
+
+<div>
+
+<h4>Community First</h4>
+
+<p>
+
+Friendly players,
+active moderation,
+and regular improvements based on feedback.
+
+</p>
+
+</div>
+
+<div>
+
+<h4>Fresh Seasons</h4>
+
+<p>
+
+New worlds,
+updated mechanics,
+and exciting reasons to come back.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================================
+                CTA
+======================================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Ready to start your next survival world?
+
+</h2>
+
+<p>
+
+Jump into Season 3 today and become part of
+the NicoSMP community.
+
+</p>
+
+<div class="cta-buttons">
+
+<a
+href="https://discord.gg/MkN5u7WVQe"
+target="_blank"
+class="primary-button">
+
+Join Discord
+
+</a>
+
+<a
+href="https://store.nicosmp.net"
+class="secondary-button">
+
+Visit Store
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container footer">
+
+<div>
+
+<strong>NicoSMP</strong>
+
+<p>
+
+Community-driven Minecraft Survival
+
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<a href="#">Home</a>
+
+<a href="https://forums.nicosmp.net">Forums</a>
+
+<a href="https://store.nicosmp.net">Store</a>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 NicoSMP
+
+<br>
+
+Not affiliated with Mojang Studios.
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
