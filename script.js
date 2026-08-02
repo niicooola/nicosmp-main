@@ -1,19 +1,39 @@
-function copyIP() {
-    // Get the IP text string
-    const ipText = document.getElementById('server-ip').innerText;
-    
-    // Copy the IP string to the user's clipboard
-    navigator.clipboard.writeText(ipText).then(() => {
-        const alertMsg = document.getElementById('copy-alert');
-        
-        // Make the success indicator pop up visually
-        alertMsg.style.display = 'block';
-        
-        // Make the alert text automatically fade away after 3 seconds
-        setTimeout(() => {
-            alertMsg.style.display = 'none';
-        }, 3000);
-    }).catch(err => {
-        console.error('Could not copy server IP address: ', err);
+document.addEventListener("DOMContentLoaded", () => {
+    const copyButton = document.getElementById("copy-ip");
+    const serverIP = document.getElementById("server-ip");
+    const copyAlert = document.getElementById("copy-alert");
+
+    if (!copyButton || !serverIP || !copyAlert) return;
+
+    copyButton.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(serverIP.textContent.trim());
+
+            copyAlert.textContent = "✓ Server IP copied to clipboard.";
+            copyAlert.style.display = "block";
+
+            copyButton.textContent = "Copied!";
+            copyButton.disabled = true;
+
+            clearTimeout(copyAlert.hideTimeout);
+
+            copyAlert.hideTimeout = setTimeout(() => {
+                copyAlert.style.display = "none";
+                copyButton.textContent = "Copy IP";
+                copyButton.disabled = false;
+            }, 2500);
+
+        } catch (error) {
+            console.error("Failed to copy server IP:", error);
+
+            copyAlert.textContent = "Unable to copy automatically.";
+            copyAlert.style.display = "block";
+
+            clearTimeout(copyAlert.hideTimeout);
+
+            copyAlert.hideTimeout = setTimeout(() => {
+                copyAlert.style.display = "none";
+            }, 3000);
+        }
     });
-}
+});
