@@ -1,12 +1,10 @@
 /* ==========================================================================
-   NICOSMP SEASON 3 - HUMANIZED MODERN BRUTALIST MAIN SYSTEM
+   NICOSMP SEASON 3 - MODERN BRUTALIST ALIGNED MAIN SYSTEM
    ========================================================================== */
 
-/* 1. Typography & Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* 11. Color Palette */
     --bg: #f5f5f3;
     --card-bg: #ffffff;
     --dark-block: #111111;
@@ -15,13 +13,16 @@
     --muted: #666666;
     --accent: #ffe34f;
     
-    /* 4. Spacing Scale (8-point system) */
     --sp-8: 8px;
     --sp-16: 16px;
     --sp-24: 24px;
     --sp-32: 32px;
     --sp-48: 48px;
     --sp-64: 64px;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -33,42 +34,129 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 1. Typography Hierarchy */
-h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; margin: 0; text-transform: uppercase; }
-h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
-h3 { font-size: 1.25rem; font-weight: 700; margin: 0; }
-p { font-size: 1rem; font-weight: 400; line-height: 1.6; margin: 0; }
+/* Typography Hierarchy */
+h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; margin: 0; text-transform: uppercase; line-height: 1.1; }
+h2 { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 var(--sp-16) 0; line-height: 1.2; }
+h3 { font-size: 1.4rem; font-weight: 700; margin: 0 0 var(--sp-12) 0; }
+h4 { font-size: 1.2rem; font-weight: 700; margin: 0 0 var(--sp-8) 0; }
+p { font-size: 1.05rem; font-weight: 400; line-height: 1.6; margin: 0; }
 
-/* 5. Navigation Upgrades */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--sp-16) var(--sp-48);
-    background-color: var(--card-bg);
+/* Global Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--sp-24);
+}
+
+.section {
+    padding: var(--sp-64) 0;
+}
+
+.section.alt {
+    background-color: #ededec;
+    border-top: 2px solid var(--border);
     border-bottom: 2px solid var(--border);
 }
 
-.nav-logo {
+.section-heading {
+    max-width: 700px;
+    margin-bottom: var(--sp-48);
+}
+
+.section-heading span {
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--sp-8);
+    color: var(--muted);
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+/* Buttons */
+.primary-button, .secondary-button {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--text);
+    border: 2px solid var(--border);
+    padding: var(--sp-12) var(--sp-24);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--border);
+    transition: all 0.15s ease;
+    text-align: center;
+}
+
+.primary-button:hover, .secondary-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--border);
+}
+
+.primary-button:active, .secondary-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.secondary-button {
+    background-color: var(--card-bg);
+}
+
+.primary-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Navigation Bar */
+.site-header {
+    background-color: var(--card-bg);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--text);
 }
 
-.nav-logo span {
+.logo-slash {
+    color: var(--muted);
+    margin: 0 2px;
+}
+
+.logo-text {
     background-color: var(--dark-block);
     color: var(--card-bg);
     padding: 2px var(--sp-8);
-    margin-left: 2px;
 }
 
-.nav-links {
+.navigation {
     display: flex;
     align-items: center;
     gap: var(--sp-24);
 }
 
-.nav-links a {
+.navigation a {
     color: var(--text);
     text-decoration: none;
     font-weight: 600;
@@ -78,75 +166,52 @@ p { font-size: 1rem; font-weight: 400; line-height: 1.6; margin: 0; }
     transition: all 0.2s ease;
 }
 
-.nav-links a:hover {
+.navigation a:hover {
     background-color: var(--bg);
     border-color: var(--border);
 }
 
-.nav-links a.active {
+.navigation a.active {
     background-color: var(--dark-block);
     color: var(--card-bg);
     border-color: var(--border);
 }
 
-/* 6. Base Layout & Hero Section */
-.main-layout {
-    max-width: 1200px;
-    margin: var(--sp-48) auto;
-    padding: 0 var(--sp-24);
-    display: flex;
-    flex-direction: column;
+/* Hero Section */
+.hero {
+    padding: var(--sp-64) 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
     gap: var(--sp-48);
+    align-items: start;
 }
 
-.hero-block {
-    text-align: center;
-    background-color: var(--card-bg);
-    border: 4px solid var(--border);
-    padding: var(--sp-64) var(--sp-32);
-    box-shadow: 10px 10px 0 var(--border);
-}
-
-.hero-block h1 {
+.hero-content .eyebrow {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--muted);
     margin-bottom: var(--sp-16);
 }
 
-.hero-block .highlight {
+.hero-content h1 span {
     background-color: var(--accent);
     padding: 0 var(--sp-8);
+    display: inline-block;
 }
 
-.tagline {
+.hero-text {
     font-size: 1.2rem;
     color: var(--muted);
-    font-weight: 500;
+    margin-top: var(--sp-24);
+    max-width: 600px;
 }
 
-/* 10. Upgraded Humanized Buttons & Widgets */
-.brutal-btn {
-    background-color: var(--accent);
-    color: var(--text);
-    border: 2px solid var(--border);
-    padding: var(--sp-12) var(--sp-24);
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    box-shadow: 3px 3px 0 var(--border);
-    transition: all 0.15s ease;
-}
-
-.brutal-btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 var(--border);
-}
-
-.brutal-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: none;
-}
-
-.ip-widget {
+/* IP Box Widget */
+.ip-box {
     display: inline-flex;
     align-items: center;
     border: 2px solid var(--border);
@@ -154,171 +219,294 @@ p { font-size: 1rem; font-weight: 400; line-height: 1.6; margin: 0; }
     padding: var(--sp-8) var(--sp-8) var(--sp-8) var(--sp-24);
     margin-top: var(--sp-32);
     box-shadow: 4px 4px 0 var(--border);
+    width: auto;
 }
 
-#server-ip {
-    font-family: monospace;
-    font-size: 1.2rem;
-    font-weight: 600;
+.ip-info {
+    display: flex;
+    flex-direction: column;
     margin-right: var(--sp-32);
 }
 
-.copy-alert {
+.ip-info small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+}
+
+.ip-info strong {
+    font-family: monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.copy-message {
     color: #00aa00;
     margin-top: var(--sp-16);
     font-weight: 600;
     display: none;
 }
 
-/* 7. Differentiated Content Layout rows */
-.content-row {
+/* Hero Status Card */
+.hero-card {
+    background-color: var(--card-bg);
+    border: 4px solid var(--border);
+    padding: var(--sp-32);
+    box-shadow: 8px 8px 0 var(--border);
+}
+
+.status-header {
     display: flex;
+    align-items: center;
+    gap: var(--sp-12);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: var(--sp-16);
+    margin-bottom: var(--sp-24);
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #00ff00;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-24);
+    margin-bottom: var(--sp-32);
+}
+
+.status-grid div {
+    display: flex;
+    flex-direction: column;
+}
+
+.status-grid small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.status-grid strong {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.hero-card .secondary-button {
+    width: 100%;
+}
+
+/* Gallery / Screenshots Section */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--sp-32);
 }
 
-.info-block {
-    flex: 1.2;
-    background-color: #fafafa; /* slightly off-white */
+.gallery figure {
+    margin: 0;
     border: 2px solid var(--border);
-    padding: var(--sp-32);
-    box-shadow: 6px 6px 0 var(--border);
-}
-
-.info-block p {
-    color: var(--muted);
-    margin-top: var(--sp-16);
-}
-
-.discord-btn {
-    display: inline-block;
-    margin-top: var(--sp-24);
-    text-decoration: none;
-    text-align: center;
     background-color: var(--card-bg);
-}
-
-/* 9. Clean Visual Gallery */
-.gallery-block {
-    flex: 1;
-    background-color: var(--card-bg);
-    border: 2px solid var(--border);
-    padding: var(--sp-32);
     box-shadow: 6px 6px 0 var(--border);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--sp-16);
-    margin-top: var(--sp-24);
-}
-
-.screenshot-frame {
-    border: 2px solid var(--border);
-    background: #e5e5e5;
-    height: 220px;
+    height: 260px;
     border-radius: 6px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     transition: transform 0.2s ease;
 }
 
-.screenshot-frame:hover {
-    transform: scale(1.02);
+.gallery figure:hover {
+    transform: scale(1.01);
 }
 
-.screenshot-frame img {
+.gallery img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.img-placeholder {
-    font-size: 0.85rem;
+.placeholder {
+    font-weight: 600;
     color: var(--muted);
-    font-weight: 500;
-}
-
-/* 12. Typographic Features Section */
-.features-section {
-    background-color: #ededec; /* light gray section canvas */
-    border: 2px solid var(--border);
-    padding: var(--sp-48) var(--sp-32);
-    box-shadow: 6px 6px 0 var(--border);
-}
-
-.features-section h2 {
-    margin-bottom: var(--sp-32);
+    font-size: 1rem;
     text-align: center;
 }
 
-.features-grid {
+/* Features Component Grid */
+.feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--sp-24);
 }
 
-.feature-box {
+.feature {
     background-color: var(--card-bg);
     border: 2px solid var(--border);
     padding: var(--sp-24);
     box-shadow: 4px 4px 0 var(--border);
 }
 
-.feature-box .icon {
-    font-size: 1.5rem;
+.feature p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--sp-64);
+    align-items: center;
+}
+
+.mini-title {
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--muted);
     margin-bottom: var(--sp-8);
 }
 
-.feature-box h3 {
-    margin-bottom: var(--sp-12);
-}
-
-.feature-box p {
+.about-grid p {
     color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    margin-top: var(--sp-16);
 }
 
-/* 13. Minimalist Footer */
-.brutal-footer {
-    text-align: center;
+.about-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-24);
+}
+
+.about-panel div {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border);
     padding: var(--sp-24);
-    background: var(--dark-block);
-    color: var(--card-bg);
+    box-shadow: 4px 4px 0 var(--border);
+}
+
+.about-panel p {
+    margin-top: var(--sp-8);
+    font-size: 0.95rem;
+}
+
+/* Call To Action (CTA) Section */
+.cta {
+    background-color: var(--accent);
     border-top: 2px solid var(--border);
-    margin-top: var(--sp-64);
+    border-bottom: 2px solid var(--border);
+    padding: var(--sp-64) 0;
+    text-align: center;
 }
 
-.brutal-footer p {
-    font-size: 0.85rem;
+.cta h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: var(--sp-16);
+}
+
+.cta p {
     font-weight: 500;
-    letter-spacing: 0.02em;
+    margin-bottom: var(--sp-32);
 }
 
-/* 14. Agile Responsive Design BREAKPOINTS */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-16);
+}
+
+/* Minimalist Footer */
+footer {
+    background-color: var(--dark-block);
+    color: var(--card-bg);
+    padding: var(--sp-48) 0;
+    border-top: 2px solid var(--border);
+}
+
+.container.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: var(--sp-32);
+}
+
+.container.footer p {
+    color: #999999;
+    font-size: 0.9rem;
+    margin-top: var(--sp-8);
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--sp-24);
+}
+
+.footer-links a {
+    color: var(--card-bg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666666;
+    border-top: 1px solid #222222;
+    padding-top: var(--sp-24);
+    line-height: 1.5;
+}
+
+/* Responsive Breakpoints */
 @media (max-width: 900px) {
-    .content-row {
-        flex-direction: column;
-        gap: var(--sp-32);
+    .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-48);
     }
-    .navbar {
-        padding: var(--sp-16) var(--sp-24);
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .container.nav {
+        padding: 0 var(--sp-24);
     }
 }
 
 @media (max-width: 600px) {
-    h1 { font-size: 2.25rem; }
-    .hero-block { padding: var(--sp-32) var(--sp-16); }
-    .ip-widget {
+    h1 { font-size: 2.5rem; }
+    .container.nav {
+        flex-direction: column;
+        height: auto;
+        padding: var(--sp-16) var(--sp-24);
+        gap: var(--sp-16);
+    }
+    .ip-box {
         flex-direction: column;
         width: 100%;
         padding: var(--sp-16);
-        box-sizing: border-box;
         gap: var(--sp-16);
     }
-    #server-ip { margin-right: 0; }
-    .brutal-btn { width: 100%; }
+    .ip-info { margin-right: 0; text-align: center; }
+    .primary-button, .secondary-button { width: 100%; }
+    .cta-buttons { flex-direction: column; gap: var(--sp-16); }
+    .container.footer { flex-direction: column; gap: var(--sp-32); }
 }
